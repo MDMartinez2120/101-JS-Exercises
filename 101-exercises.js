@@ -1024,7 +1024,7 @@ addToDone("Exercise 58 is correct.")
 function firstToLast(string) {
     string.push(string.shift())
     return string
-}
+};
 
 assert(firstToLast([1, 2, 3, 4]), [2, 3, 4, 1], "Exercise 59");
 assert(firstToLast(["JS", "is", "awesome"]), ["is", "awesome", "JS"], "Exercise 59");
@@ -1036,9 +1036,12 @@ addToDone("Exercise 59 is correct.")
 // Exercise 60
 // Write a function definition named sumAll that takes in sequence of numbers and returns all the numbers added together.
 
-function sumAll(num) {
-  var sum = 0
-  num.forEach()
+function sumAll(arr) {
+  let sum = 0;
+  for(let i = 0; i < arr.length; ++i){
+    sum += arr[i];
+  }
+  return sum;
 };
 
 assert(sumAll([1, 2, 3, 4]), 10, "Exercise 60");
@@ -1051,6 +1054,17 @@ addToDone("Exercise 60 is correct.")
 //  Exercise 61
 //  Write a function definition named mean that takes in sequence of numbers and returns the average value
 
+function mean(arr) {
+  let sum = 0;
+  let total = 0;
+  
+  arr.forEach(function(num){
+    sum += num;
+    total++
+  });
+  return sum/total;
+}
+
 assert(mean([1, 2, 3, 4]), 2.5, "Exercise 61");
 assert(mean([3, 3, 3]), 3, "Exercise 61");
 assert(mean([1, 5, 6]), 4, "Exercise 61");
@@ -1060,6 +1074,15 @@ addToDone("Exercise 61 is correct.")
 
 // Exercise 62
 // Write a function definition named median that takes in sequence of numbers and returns the average value
+
+function median(arr) {
+  
+  let arrLength = arr.length
+  if(arrLength % 2 != 0) {
+    return arr[parseInt(arrLength / 2)];
+  }
+  return (arr[parseInt((arrLength -1) / 2)] + arr[parseInt(arrLength / 2)]) / 2.0;
+}
 
 assert(median([1, 2, 3, 4, 5]), 3.0, "Exercise 62");
 assert(median([1, 2, 3]), 2.0, "Exercise 62");
