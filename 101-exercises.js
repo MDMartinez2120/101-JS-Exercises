@@ -1664,6 +1664,12 @@ addToDone("Exercise 93 is complete.")
 // Write a function called highestPriceBook that takes in the above defined array of objects "books" and returns the object containing the title, price, and author of the book with the highest priced book.
 // Hint: Much like sometimes start functions with a variable set to zero, you may want to create a object with the price set to zero to compare to each object's price in the array
 
+function highestPriceBook(books) {
+  let highestPrice = books.sort((a, b) => b.price - a.price);
+  return highestPrice[0];
+}
+
+
 assert(highestPriceBook(books), {
     "title": "The Visual Display of Quantitative Information",
     "price": 38.00,
@@ -1677,6 +1683,11 @@ addToDone("Exercise 94 is complete")
 // Exercise 95
 // Write a function called lowestPriceBook that takes in the above defined array of objects "books" and returns the object containing the title, price, and author of the book with the lowest priced book.
 // Hint: Much like sometimes start functions with a variable set to zero or float('inf'), you may want to create a object with the price set to float('inf') to compare to each object in the array
+
+function lowestPriceBook(books) {
+  let lowestPrice = books.sort((a, b) => a.price - b.price);
+  return lowestPrice[0];
+}
 
 
 assert(lowestPriceBook(books), {
